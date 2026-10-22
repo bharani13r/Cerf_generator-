@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Certificate Generator</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Digital Certificate Generator</h1>
+        <p>Generate personalized certificates for up to 5 participants.</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>1. Upload Excel File</h2>
+            <p>Required columns: Name, Event, Date, Email.</p>
+            <input type="file" id="excelFile" accept=".xlsx,.xls">
+            <button id="readExcel">Read Participant Details</button>
+            <p id="excelStatus" class="status"></p>
+            <div id="participantList"></div>
+        </section>
+
+        <section class="card">
+            <h2>2. Upload Certificate Template</h2>
+            <p>Supported formats: PDF, JPG, PNG.</p>
+            <input type="file" id="templateFile" accept=".pdf,.jpg,.jpeg,.png,image/jpeg,image/png,application/pdf">
+            <p id="templateStatus" class="status"></p>
+        </section>
+
+        <section class="card">
+            <h2>3. Position the Text</h2>
+            <p>Select a field, then click the certificate preview to position it.</p>
+
+            <label for="fieldSelect">Field:</label>
+            <select id="fieldSelect">
+                <option value="Name">Participant Name</option>
+                <option value="Event">Event Name</option>
+                <option value="Date">Date</option>
+            </select>
+
+            <label for="fontSize">Font size:</label>
+            <input type="number" id="fontSize" value="24" min="8" max="72">
+
+            <div id="previewContainer">
+                <p id="previewMessage">Upload a certificate template to preview it here.</p>
+                <canvas id="pdfPreview"></canvas>
+                <img id="imagePreview" alt="Certificate template preview">
+            </div>
+
+            <p id="positionStatus" class="status"></p>
+        </section>
+
+        <section class="card">
+            <h2>4. Generate Certificates</h2>
+            <button id="generateBtn">Generate Certificates</button>
+            <button id="downloadZipBtn" disabled>Download All as ZIP</button>
+            <div id="downloadLinks"></div>
+            <p id="generateStatus" class="status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Files are processed in your browser. Do not close the page while certificates are being generated.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
