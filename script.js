@@ -280,7 +280,8 @@ async function createCertificate(person) {
         });
     }
 
-    const font = await pdf.embedFont(StandardFonts.Helvetica);
+    const regularFont = await pdf.embedFont(StandardFonts.Helvetica);
+const boldFont = await pdf.embedFont(StandardFonts.HelveticaBold);
     const { width, height } = page.getSize();
     const fontSize = Number($("fontSize").value) || 24;
 
@@ -294,12 +295,12 @@ async function createCertificate(person) {
         const y = Math.max(0, Math.min(height - fontSize, height - pos.y * height - fontSize / 2));
 
         page.drawText(text, {
-            x,
-            y,
-            size: fontSize,
-            font,
-            color: rgb(0, 0, 0)
-        });
+    x,
+    y,
+    size: fontSize,
+    font: field === "Name" ? boldFont : regularFont,
+    color: rgb(0, 0, 0)
+});
     }
 
     return await pdf.save();
