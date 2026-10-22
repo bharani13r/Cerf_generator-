@@ -288,7 +288,8 @@ const boldFont = await pdf.embedFont(StandardFonts.HelveticaBold);
     for (const field of ["Name", "Event", "Date"]) {
         const pos = positions[field];
         const text = person[field];
-        const textWidth = font.widthOfTextAtSize(text, fontSize);
+        const selectedFont = field === "Name" ? boldFont : regularFont;
+const textWidth = selectedFont.widthOfTextAtSize(text, fontSize);
 
         // Click position represents the approximate horizontal center of the text.
         const x = Math.max(0, Math.min(width - textWidth, pos.x * width - textWidth / 2));
