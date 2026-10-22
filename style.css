@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f5f9;
+    color: #202938;
+}
+
+header {
+    background: #243b67;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+header p {
+    margin: 0;
+}
+
+main {
+    width: min(900px, 94%);
+    margin: 25px auto;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0000000d;
+}
+
+h2 {
+    margin-top: 0;
+    color: #243b67;
+}
+
+input, select {
+    display: block;
+    max-width: 100%;
+    margin: 12px 0;
+    padding: 10px;
+}
+
+button {
+    background: #3157a4;
+    color: white;
+    border: 0;
+    padding: 11px 16px;
+    margin: 6px 5px 6px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #203e7d;
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+.status {
+    overflow-wrap: anywhere;
+    color: #3157a4;
+}
+
+#participantList {
+    overflow-wrap: anywhere;
+}
+
+#previewContainer {
+    margin-top: 18px;
+    padding: 12px;
+    background: #e9edf5;
+    border-radius: 8px;
+    text-align: center;
+    overflow: auto;
+}
+
+#pdfPreview, #imagePreview {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    cursor: crosshair;
+}
+
+#previewMessage {
+    color: #555;
+}
+
+.download-item {
+    display: block;
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+}
